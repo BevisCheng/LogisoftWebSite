@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LogiSoft Limited provides innovative logistics systems and freight forwarding solutions, including AI, RPA, and automation, to optimize operations and reduce costs.">
+    <title>LogiSoft Limited - Innovative Logistics Solutions</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #2a2a3e;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust the height as needed */
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1rem;
+            /*text-transform: uppercase;*/
+        }
+
+        nav ul li a:hover {
+            color: #e6b800;
+        }
+
+        .lang-select {
+            background-color: #3a3a4e;
+            color: white;
+            border: none;
+            padding: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background-image:url("freightManagement.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-bottom: 6rem;
+           
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background-color: #e4e4e4;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #2a2a3e;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: white;
+        }
+
+        .services h1{
+            font-size: 3rem;
+            color: #2a2a3e;
+            margin-bottom: 1rem;
+        }
+        .services .divider {
+            width: 150px;
+            height: 8px;
+            background-color: #ffcc00;
+            margin: 0 auto 2rem;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .services-grid.second-row {
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            max-width: 350px;
+            text-align: left;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.5;
+        }
+        .video {
+            padding: 4rem 2rem;
+            background-color: #e4e4e4;
+            text-align: center;
+        }
+        .video .divider {
+            width: 150px;
+            height: 8px;
+            background-color: #ffcc00;
+            margin: 0 auto 2rem;
+        }
+
+        .video h2 {
+            font-size: 2.5rem;
+            color: #2a2a3e;
+            margin-bottom: 2rem;
+        }
+
+        .video video {
+            width: 1020px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+ /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            color: #2a2a3e;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            /* Added a border to confirm the class is applied */
+            /*border: 1px solid #b6b6e0; /* Commented out the border */
+        }
+
+        .contact-form.custom-form-style {
+            background-color: #e6f0ff;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: #2a2a3e;
+        }
+
+        .contact-form input, select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form .g-recaptcha {
+            margin-bottom: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #ffcc00;
+            color: #2a2a3e;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video video {
+                width: 100%;
+            }
+
+            .contact-form {
+                padding: 1rem; /* Corrected typo from -1rem */
+            }
+        }
+
+        body > section {
+            padding-top: 80px; /* Consolidate this rule */
+        }
+
+        /* Font Imports for Chinese */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+        /* Language-specific fonts */
+        body.lang-zh-CN {
+            font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        body.lang-zh-TW {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo_colour_light_blue.png" alt="LogiSoft Limited - Logistics Software Specialists">
+        </div>
+        <ul>
+            <li>
+                <select class="lang-select">
+                    <option value="en">EN</option>
+                    <option value="zh-TW">繁體中文</option> <option value="zh-CN">简体中文</option> </select>
+            </li>
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#solutions" data-i18n="nav_solutions">Solutions</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 data-i18n="hero_heading"></h1>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-i18n="about_heading"></h2>
+        <p data-i18n="about_paragraph"></p>
+    </section>
+
+    <section id="solutions" class="services">
+        
+        <h1 data-i18n="solutions_heading"></h1>
+        <div class="divider"></div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="image/workflow.jpg" alt="Workflow Automation">
+                <div class="service-card-content">
+                    <h3 data-i18n="workflow_title"></h3>
+                    <p data-i18n="workflow_desc"></p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="image/rpa.jpg" alt="Robotic Processing Automation (RPA)">
+                <div class="service-card-content">
+                    <h3 data-i18n="rpa_title"></h3>
+                    <p data-i18n="rpa_desc"></p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="image/ffs.jpg" alt="Freight System with AI (F-AI)">
+                <div class="service-card-content">
+                    <h3 data-i18n="ffs_title"></h3>
+                    <p data-i18n="ffs_desc"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-grid second-row">
+            <div class="service-card">
+                <img src="image/Portal.jpg" alt="Online Portal">
+                <div class="service-card-content">
+                    <h3 data-i18n="portal_title"></h3>
+                    <p data-i18n="portal_desc"></p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="image/Pnp.webp" alt="Pick and pack">
+                <div class="service-card-content">
+                    <h3 data-i18n="pickpack_title"></h3>
+                    <p data-i18n="pickpack_desc"></p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="image/WhseApp.jpg" alt="Warehouse App">
+                <div class="service-card-content">
+                    <h3 data-i18n="warehouse_title"></h3>
+                    <p data-i18n="warehouse_desc"></p>
+                </div>
+            </div>
+        </div>        
+    </section>
+    <section id="video" class="video">
+        <h2 data-i18n="video_heading"></h2>
+        <div class="divider"></div>
+        <video controls poster="image/RPA_Poster.png">
+            <source src="video/RPA_EN.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <section id="contact" class="contact">
+        <h2 data-i18n="contact_heading"></h2>
+        <form  action="https://formspree.io/f/mpwdnpkz" method="POST" class="contact-form custom-form-style">
+            <label data-i18n="form_name_label">
+                Name
+                <input type="text" name="name" required>
+            </label>            
+            <label data-i18n="form_company_label">
+                Company
+                <input type="text" name="company" required>
+            </label>
+            <label data-i18n="form_business_type_label">
+                Business Type
+                <select name="businessType" required>
+                    <option value="Logistics Industry" data-i18n="biztype_logistics" selected></option>
+                    <option value="Freight Forwarding" data-i18n="biztype_freight"></option>
+                    <option value="Warehousing" data-i18n="biztype_warehousing"></option>
+                    <option value="Transportation" data-i18n="biztype_transportation"></option>
+                    <option value="Supply Chain Management" data-i18n="biztype_supply_chain"></option>
+                    <option value="Customs Brokerage" data-i18n="biztype_customs"></option>
+                    <option value="Third-Party Logistics (3PL)" data-i18n="biztype_3pl"></option>
+                    <option value="Distribution" data-i18n="biztype_distribution"></option>
+                    <option value="Last-Mile Delivery" data-i18n="biztype_last_mile"></option>
+                </select>
+            </label>         
+            <label data-i18n="form_email_label">
+                Email
+                <input type="email" name="email" id="email" required>
+            </label>
+            <label data-i18n="form_message_label">
+                Message
+                <textarea name="message" id="message" required></textarea>
+            </label>
+
+            <button type="submit" data-i18n="form_send_button"></button>
+        </form>
+    </section>
+
+    <hr>
+    <footer>
+        <p>&copy; 2025 LogiSoft Limited. All rights reserved.</p>
+        </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_solutions: "Solutions",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_heading: "About LogiSoft",
+                about_heading: "About Us",
+                about_paragraph: "Established in 2003, our company is dedicated to developing innovative logistics systems for the freight forwarding industry. Our flagship Freight Forwarder System is a comprehensive, all-in-one solution that covers Import, Export, Air, Sea, and Transportation shipments, ensuring seamless operations across all modes of transport. Additionally, the system includes a fully integrated accounting module, providing end-to-end support for both logistics and financial management. With our deep industry knowledge and strong partnerships in AI, RPA, and Automation, we help freight forwarders optimize their processes, reduce costs, and stay competitive in a rapidly evolving market.",
+                solutions_heading: "Solutions",
+                workflow_title: "Workflow Automation",
+                workflow_desc: "Workflow Automation streamlines repetitive tasks like booking processes, shipment data entry, document preparation and accounting procedures. It ensures tasks are completed consistently and on time, reducing errors, cutting cost and boosting efficiency.",
+                rpa_title: "Robotic Processing Automation (RPA)",
+                rpa_desc: "By using RPA, businesses can interact with third-party platforms more efficiently, reducing manual effort, improving accuracy, and cutting down on operational costs. This solution is ideal for handling tasks like data transfers, system updates, and integrations without the need for complex coding or human intervention.",
+                ffs_title: "Freight System with AI (F-AI)",
+                ffs_desc: "F-AI (Fay) – the future of freight forwarding, powered by RPA, OCR-AI, and BI analytics. F-AI automates complex logistics with Robotic Process Automation, extracts data efficiently using AI-driven OCR, and delivers actionable insights through Power BI. Optimize your freight operations, reduce costs, and gain real-time visibility with our intelligent, AI-powered platform. Streamline logistics and make smarter, data-driven decisions with F-AI.",
+                portal_title: "Online Portal for Freight Price & eBooking",
+                portal_desc: "The Online Portal for Freight Price & eBooking offers a comprehensive solution for managing your logistics needs. Users can perform online price queries, compare real-time freight rates, and make online bookings with ease. The portal also features robust document management tools, including Online B/L Sample Confirmation, allowing users to review, manage, and confirm shipping documents digitally. This all-in-one platform ensures transparency, efficiency, and convenience from rate inquiries to booking and document handling.",
+                pickpack_title: "Pick and Pack Recording & Streaming",
+                pickpack_desc: "The Pick and Pack Recording system enables efficient tracking of goods as they are selected and packed for shipment. This feature allows real-time recording of items, ensuring accuracy and traceability throughout the fulfillment process. It helps streamline warehouse operations, reduce errors, and maintain an organized record of packed items, improving overall efficiency and inventory management.",
+                warehouse_title: "Warehouse Workflow Apps",
+                warehouse_desc: "The Warehouse Workflow App enables efficient management by sending instructions directly to warehouse workers for tasks like taking photos, repacking, handling ex-works procedures, or preparing deliveries. It also allows you to control the workflow of warehouse jobs and billings, ensuring that tasks are completed on time and accurately billed. This comprehensive solution improves coordination, boosts efficiency, and streamlines both operational and financial processes in the warehouse.",
+                video_heading: "Robotic Processing Automation",
+                contact_heading: "Contact Us",
+                form_name_label: "Name",
+                form_company_label: "Company",
+                form_business_type_label: "Business Type",
+                biztype_logistics: "Logistics Industry",
+                biztype_freight: "Freight Forwarding",
+                biztype_warehousing: "Warehousing",
+                biztype_transportation: "Transportation",
+                biztype_supply_chain: "Supply Chain Management",
+                biztype_customs: "Customs Brokerage",
+                biztype_3pl: "Third-Party Logistics (3PL)",
+                biztype_distribution: "Distribution",
+                biztype_last_mile: "Last-Mile Delivery",
+                form_email_label: "Email",
+                form_message_label: "Message",
+                form_send_button: "Send Message",
+                alert_wait_minute: "Please wait a minute before submitting again.",
+                alert_invalid_email: "Please enter a valid email address.",
+                alert_message_too_long: "Message is too long. Please keep it under 1000 characters."
+            },
+            "zh-TW": { // Traditional Chinese translations
+                nav_home: "首頁",
+                nav_about: "關於我們",
+                nav_solutions: "解決方案",
+                nav_projects: "專案",
+                nav_contact: "聯絡我們",
+                hero_heading: "關於LogiSoft",
+                about_heading: "關於我們",
+                about_paragraph: "本公司成立於2003年，致力於為貨運代理行業開發創新的物流系統。我們的旗艦級貨運代理系統是一個全面的、一站式解決方案，涵蓋進口、出口、空運、海運和陸路運輸，確保所有運輸模式的無縫操作。此外，該系統還包含一個完全整合的會計模組，為物流和財務管理提供端到端的支援。憑藉我們深厚的行業知識以及在AI、RPA和自動化領域的強大合作夥伴關係，我們幫助貨運代理優化流程、降低成本，並在快速發展的市場中保持競爭力。",
+                solutions_heading: "解決方案",
+                workflow_title: "工作流程自動化",
+                workflow_desc: "工作流程自動化簡化了重複性任務，例如訂艙流程、貨運數據輸入、文件準備和會計程序。它確保任務始終一致且準時完成，從而減少錯誤、降低成本並提高效率。",
+                rpa_title: "機器人流程自動化 (RPA)",
+                rpa_desc: "透過使用RPA，企業可以更有效地與第三方平台互動，減少手動操作，提高準確性，並降低營運成本。該解決方案非常適合處理數據傳輸、系統更新和整合等任務，無需複雜的編碼或人工干預。",
+                ffs_title: "AI貨運系統 (F-AI)",
+                ffs_desc: "F-AI (Fay) – 貨運代理的未來，由RPA、OCR-AI和BI分析驅動。F-AI透過機器人流程自動化實現複雜物流的自動化，利用AI驅動的OCR高效提取數據，並透過Power BI提供可操作的洞察。利用我們智慧的AI驅動平台，優化您的貨運操作、降低成本並獲得即時可視性。使用F-AI簡化物流並做出更明智的數據驅動決策。",
+                portal_title: "線上運費查詢和電子訂艙平台",
+                portal_desc: "線上運費查詢和電子訂艙平台提供了一個全面的解決方案，用於管理您的物流需求。用戶可以輕鬆執行線上運費查詢、比較即時運費報價並進行線上訂艙。該平台還具備強大的文件管理工具，包括線上提單樣本確認，允許用戶數位審查、管理和確認運輸文件。這個一站式平台確保了從運費查詢到訂艙和文件處理的透明度、效率和便利性。",
+                pickpack_title: "揀貨和包裝記錄與串流",
+                pickpack_desc: "揀貨和包裝記錄系統能夠有效追蹤商品在揀選和包裝以供運輸過程中的情況。此功能允許即時記錄物品，確保在整個履約過程中的準確性和可追溯性。它有助於簡化倉庫操作、減少錯誤並保持包裝物品的有序記錄，從而提高整體效率和庫存管理。",
+                warehouse_title: "倉庫工作流程應用程式",
+                warehouse_desc: "倉庫工作流程應用程式透過直接向倉庫工人發送指令來實現高效管理，例如拍照、重新包裝、處理工廠交貨（Ex-Works）程序或準備交貨。它還允許您控制倉庫作業和計費的工作流程，確保任務按時完成並準確計費。這個全面的解決方案改善了協調性，提高了效率，並簡化了倉庫的運營和財務流程。",
+                video_heading: "機器人流程自動化",
+                contact_heading: "聯絡我們",
+                form_name_label: "姓名",
+                form_company_label: "公司名稱",
+                form_business_type_label: "業務類型",
+                biztype_logistics: "物流業",
+                biztype_freight: "貨運代理",
+                biztype_warehousing: "倉儲",
+                biztype_transportation: "運輸",
+                biztype_supply_chain: "供應鏈管理",
+                biztype_customs: "報關行",
+                biztype_3pl: "第三方物流 (3PL)",
+                biztype_distribution: "配送",
+                biztype_last_mile: "最後一哩配送",
+                form_email_label: "電子郵件",
+                form_message_label: "訊息",
+                form_send_button: "傳送訊息",
+                alert_wait_minute: "請等待一分鐘後再提交。",
+                alert_invalid_email: "請輸入有效的電子郵件地址。",
+                alert_message_too_long: "訊息太長。請保持在1000字元以內。"
+            },
+            "zh-CN": { // Simplified Chinese translations
+                nav_home: "首页",
+                nav_about: "关于我们",
+                nav_solutions: "解决方案",
+                nav_projects: "项目",
+                nav_contact: "联系我们",
+                hero_heading: "关于LogiSoft",
+                about_heading: "关于我们",
+                about_paragraph: "本公司成立于2003年，致力于为货运代理行业开发创新的物流系统。我们的旗舰级货运代理系统是一个全面的、一站式解决方案，涵盖进口、出口、空运、海运和陆路运输，确保所有运输模式的无缝操作。此外，该系统还包含一个完全集成的会计模块，为物流和财务管理提供端到端的支持。凭借我们深厚的行业知识以及在AI、RPA和自动化领域的强大合作关系，我们帮助货运代理优化流程、降低成本，并在快速发展的市场中保持竞争力。",
+                solutions_heading: "解决方案",
+                workflow_title: "工作流程自动化",
+                workflow_desc: "工作流程自动化简化了重复性任务，例如订舱流程、货运数据输入、文件准备和会计程序。它确保任务始终一致且准时完成，从而减少错误、降低成本并提高效率。",
+                rpa_title: "机器人流程自动化 (RPA)",
+                rpa_desc: "通过使用RPA，企业可以更有效地与第三方平台互动，减少手动操作，提高准确性，并降低运营成本。该解决方案非常适合处理数据传输、系统更新和集成等任务，无需复杂的编码或人工干预。",
+                ffs_title: "AI货运系统 (F-AI)",
+                ffs_desc: "F-AI (Fay) – 货运代理的未来，由RPA、OCR-AI和BI分析驱动。F-AI通过机器人流程自动化实现复杂物流的自动化，利用AI驱动的OCR高效提取数据，并通过Power BI提供可操作的洞察。利用我们智能的AI驱动平台，优化您的货运操作、降低成本并获得实时可见性。使用F-AI简化物流并做出更明智的数据驱动决策。",
+                portal_title: "在线运费查询和电子订舱平台",
+                portal_desc: "在线运费查询和电子订舱平台提供了一个全面的解决方案，用于管理您的物流需求。用户可以轻松执行在线运费查询、比较实时运费报价并进行在线订舱。该平台还具备强大的文件管理工具，包括在线提单样本确认，允许用户数字审查、管理和确认运输文件。这个一站式平台确保了从运费查询到订舱和文件处理的透明度、效率和便利性。",
+                pickpack_title: "拣货和包装记录与流媒体",
+                pickpack_desc: "拣货和包装记录系统能够有效追踪商品在拣选和包装以供运输过程中的情况。此功能允许实时记录物品，确保在整个履行过程中的准确性和可追溯性。它有助于简化仓库操作、减少错误并保持包装物品的有序记录，从而提高整体效率和库存管理。",
+                warehouse_title: "仓库工作流程应用",
+                warehouse_desc: "仓库工作流程应用通过直接向仓库工人发送指令来实现高效管理，例如拍照、重新包装、处理工厂交货（Ex-Works）程序或准备交货。它还允许您控制仓库作业和计费的工作流程，确保任务按时完成并准确计费。这个全面的解决方案改善了协调性，提高了效率，并简化了仓库的运营和财务流程。",
+                video_heading: "机器人流程自动化",
+                contact_heading: "联系我们",
+                form_name_label: "姓名",
+                form_company_label: "公司名称",
+                form_business_type_label: "业务类型",
+                biztype_logistics: "物流业",
+                biztype_freight: "货运代理",
+                biztype_warehousing: "仓储",
+                biztype_transportation: "运输",
+                biztype_supply_chain: "供应链管理",
+                biztype_customs: "报关行",
+                biztype_3pl: "第三方物流 (3PL)",
+                biztype_distribution: "配送",
+                biztype_last_mile: "最后一公里配送",
+                form_email_label: "电子邮件",
+                form_message_label: "消息",
+                form_send_button: "发送消息",
+                alert_wait_minute: "请等待一分钟后再次提交。",
+                alert_invalid_email: "请输入有效的电子邮件地址。",
+                alert_message_too_long: "消息太长。请保持在1000字符以内。"
+            }
+        };
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // For <option> tags, update textContent and potentially value if tied to language
+                    if (element.tagName === 'OPTION') {
+                         element.textContent = translations[lang][key];
+                         // If the option's value should also change, do it here.
+                         // For businessType, we're keeping values consistent across languages for form submission.
+                    }
+                    else if (element.tagName === 'INPUT' && (element.type === 'text' || element.type === 'email')) {
+                        // For input fields, consider updating placeholder if it was set via i18n
+                        element.placeholder = translations[lang][key]; // Assuming key is for placeholder
+                        // If it's a label for an input, it will be textContent
+                        if (element.parentElement.tagName === 'LABEL') {
+                            element.parentElement.childNodes[0].nodeValue = translations[lang][key]; // Update label text node
+                        }
+                    }
+                    else if (element.tagName === 'BUTTON') {
+                        element.textContent = translations[lang][key];
+                    }
+                    else if (element.tagName === 'LABEL') {
+                        // For labels that directly wrap content (like "Name <input>")
+                        // We need to update the text node that is not the input itself.
+                        // This assumes the label's text is the first child node.
+                        if (element.childNodes.length > 0 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+                            element.childNodes[0].nodeValue = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                    else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update selected option in the language dropdown
+            const langSelect = document.querySelector('.lang-select');
+            if (langSelect) {
+                langSelect.value = lang;
+            }
+
+            // Store preference
+            localStorage.setItem('selectedLanguage', lang);
+
+            // Handle language-specific body classes for fonts
+            document.body.className = document.body.className.split(' ').filter(c => !c.startsWith('lang-')).join(' ');
+            document.body.classList.add(`lang-${lang}`);
+
+            // Optional: Handle image localization if applicable (e.g., hero image with text)
+            // const heroSection = document.getElementById('home');
+            // if (heroSection) {
+            //     let bgImage = 'freightManagement.jpg'; // Default English
+            //     if (lang === 'zh-TW') {
+            //         bgImage = 'freightManagement_zh-TW.jpg';
+            //     } else if (lang === 'zh-CN') {
+            //         bgImage = 'freightManagement_zh-CN.jpg';
+            //     }
+            //     heroSection.style.backgroundImage = `url("${bgImage}")`;
+            // }
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('selectedLanguage') || 'en'; // Default to English
+            applyLanguage(storedLang);
+
+            const langSelect = document.querySelector('.lang-select');
+            if (langSelect) {
+                // Ensure the option for the current language is selected
+                langSelect.value = storedLang;
+
+                langSelect.addEventListener('change', (event) => {
+                    applyLanguage(event.target.value);
+                });
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Client-side rate limiting and validation for form submissions
+        let lastSubmissionTime = 0;
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                try {
+                    const emailElement = document.getElementById('email');
+                    const messageElement = document.getElementById('message');
+
+                    if (!emailElement || !messageElement) {
+                        console.error('Email or message element not found. Please ensure they have id="email" and id="message".');
+                        e.preventDefault();
+                        return;
+                    }
+
+                    const currentTime = Date.now();
+                    const currentLang = localStorage.getItem('selectedLanguage') || 'en'; // Get current language for alert
+                    
+                    if (currentTime - lastSubmissionTime < 60000) { // 60 seconds
+                        e.preventDefault();
+                        alert(translations[currentLang].alert_wait_minute);
+                        return;
+                    }
+
+                    const email = emailElement.value;
+                    const message = messageElement.value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        e.preventDefault();
+                        alert(translations[currentLang].alert_invalid_email);
+                        return;
+                    }
+                    if (message.length > 1000) {
+                        e.preventDefault();
+                        alert(translations[currentLang].alert_message_too_long);
+                        return;
+                    }
+
+                    lastSubmissionTime = currentTime;
+
+                } catch (error) {
+                    console.error('Error in form submission handler:', error);
+                    e.preventDefault();
+                }
+            });
+        } else {
+            console.warn('Contact form not found. Ensure it has the class "contact-form".');
+        }
+    </script>
+</body>
+</html>
