@@ -20,6 +20,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
         .logo img {
@@ -271,8 +275,10 @@
                 align-items: center;
             }
 
-            .video video {
+            .video-container iframe {
                 width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
             }
 
             .contact-form {
@@ -280,9 +286,18 @@
             }
         }
 
-        body > section {
-            padding-top: 80px; /* Consolidate this rule */
+        html {
+            scroll-padding-top: 75px;
         }
+
+        body {
+            padding-top: 75px;
+        }
+
+        /* Consolidate this rule */
+        /* body > section {
+             padding-top: 80px; 
+        } */
 
         /* Font Imports for Chinese */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
@@ -380,10 +395,9 @@
     <section id="video" class="video">
         <h2 data-i18n="video_heading"></h2>
         <div class="divider"></div>
-        <video controls poster="image/RPA_Poster.png">
-            <source src="video/RPA_EN.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="video-container">
+            <iframe id="rpa-video" width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>
     <section id="contact" class="contact">
         <h2 data-i18n="contact_heading"></h2>
