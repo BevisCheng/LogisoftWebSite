@@ -418,20 +418,17 @@
     <h2 data-i18n="video_heading"></h2>
     <div class="divider"></div>
     <div class="video-container">
-        <!-- Azure-hosted video with HTML5 player -->
+        <!-- Azure-hosted video with language support -->
         <video id="rpa-video" controls preload="metadata" poster="">
-            <!-- Your Azure Blob Storage video URL -->
-            <source src="https://logisoftmedia.blob.core.windows.net/$web/RPA_EN.mp4" type="video/mp4">
+            <!-- Dynamic video source based on language -->
+            <source id="video-source" src="https://logisoftmedia.z7.web.core.windows.net/RPA_EN.mp4" type="video/mp4">
             
             <!-- Fallback for very old browsers -->
             <p>Your browser doesn't support HTML5 video. 
-               <a href="https://logisoftmedia.blob.core.windows.net/$web/RPA_EN.mp4">Download the video</a> instead.
+               <a id="video-download-link" href="https://logisoftmedia.z7.web.core.windows.net/RPA_EN.mp4">Download the video</a> instead.
             </p>
         </video>
-        
-        <!-- Backup: Keep YouTube as alternative (uncomment if needed) -->
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg" 
-             title="RPA Demo" frameborder="0" allowfullscreen></iframe> -->
+    </div>
     </div>
 </section>
     <section id="contact" class="contact">
@@ -657,6 +654,9 @@
             document.body.className = document.body.className.split(' ').filter(c => !c.startsWith('lang-')).join(' ');
             document.body.classList.add(`lang-${lang}`);
 
+            // Update video based on language
+            updateVideoLanguage(lang);
+
             // Optional: Handle image localization if applicable (e.g., hero image with text)
             // const heroSection = document.getElementById('home');
             // if (heroSection) {
@@ -670,13 +670,36 @@
             // }
         }
 
+        function updateVideoLanguage(lang) {
+            const videoSource = document.getElementById('video-source');
+            const downloadLink = document.getElementById('video-download-link');
+            const video = document.getElementById('rpa-video');
+            
+            if (videoSource && downloadLink && video) {
+                let videoFile;
+                
+                // Determine video file based on language
+                if (lang === 'zh-CN' || lang === 'zh-TW') {
+                    videoFile = 'RPA_CN.mp4'; // Chinese video for both simplified and traditional
+                } else {
+                    videoFile = 'RPA_EN.mp4'; // English video (default)
+                }
+                
+                const videoUrl = `https://logisoftmedia.z7.web.core.windows.net/${videoFile}`;
+                
+                // Update video source
+                videoSource.src = videoUrl;
+                downloadLink.href = videoUrl;
+                
+                // Reload video with new source
+                video.load();
+            }
+        }
+
         // Initialize language on page load
         document.addEventListener('DOMContentLoaded', () => {
             const storedLang = localStorage.getItem('selectedLanguage') || 'en'; // Default to English
             applyLanguage(storedLang);
-
-            // Check video accessibility after language is applied
-            setTimeout(checkVideoAccessibility, 1000);
 
             const langSelect = document.querySelector('.lang-select');
             if (langSelect) {
@@ -705,35 +728,6 @@
 
         // Client-side rate limiting and validation for form submissions
         let lastSubmissionTime = 0;
-        
-        // Video fallback detection for China users
-        function checkVideoAccessibility() {
-            const youtubeFrame = document.getElementById('rpa-video-youtube');
-            if (youtubeFrame) {
-                // Test if YouTube is accessible
-                const testImg = new Image();
-                testImg.onload = function() {
-                    // YouTube is accessible, keep current video
-                    console.log('YouTube is accessible');
-                };
-                testImg.onerror = function() {
-                    // YouTube is blocked, show fallback message or alternative video
-                    console.log('YouTube appears to be blocked, consider showing alternative');
-                    const videoContainer = document.querySelector('.video-container');
-                    if (videoContainer) {
-                        videoContainer.innerHTML = `
-                            <div style="background-color: #f0f0f0; padding: 2rem; border-radius: 8px; text-align: center;">
-                                <h3 style="color: #2a2a3e; margin-bottom: 1rem;">Video Demonstration</h3>
-                                <p style="color: #666; margin-bottom: 1rem;">Our RPA (Robotic Process Automation) solution demonstrates how we automate complex logistics workflows.</p>
-                                <p style="color: #666; font-size: 0.9rem;">If you're unable to view the video, please <a href="mailto:info@logisoft.com" style="color: #ffcc00;">contact us</a> for a personalized demo.</p>
-                            </div>
-                        `;
-                    }
-                };
-                testImg.src = 'https://www.youtube.com/favicon.ico?' + Date.now();
-            }
-        }
-        
         const form = document.querySelector('.contact-form');
         if (form) {
             form.addEventListener('submit', function (e) {
