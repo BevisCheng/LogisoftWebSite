@@ -187,13 +187,18 @@
             max-width: 1020px;
         }
 
-        .video-container iframe {
+        .video-container iframe,
+        .video-container video {
             width: 100%;
             max-width: 1020px;
             height: 574px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: none;
+        }
+
+        .video-container video {
+            background-color: #000;
         }
  /* Contact Section */
         .contact {
@@ -290,7 +295,8 @@
                 padding: 0 1rem;
             }
 
-            .video-container iframe {
+            .video-container iframe,
+            .video-container video {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 16/9;
@@ -408,13 +414,26 @@
             </div>
         </div>        
     </section>
-    <section id="video" class="video">
-        <h2 data-i18n="video_heading"></h2>
-        <div class="divider"></div>
-        <div class="video-container">
-            <iframe id="rpa-video" width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg" title="RPA Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </section>
+<section id="video" class="video">
+    <h2 data-i18n="video_heading"></h2>
+    <div class="divider"></div>
+    <div class="video-container">
+        <!-- Azure-hosted video with HTML5 player -->
+        <video id="rpa-video" controls preload="metadata" poster="">
+            <!-- Your Azure Blob Storage video URL -->
+            <source src="https://logisoftmedia.blob.core.windows.net/$web/RPA_EN.mp4" type="video/mp4">
+            
+            <!-- Fallback for very old browsers -->
+            <p>Your browser doesn't support HTML5 video. 
+               <a href="https://logisoftmedia.blob.core.windows.net/$web/RPA_EN.mp4">Download the video</a> instead.
+            </p>
+        </video>
+        
+        <!-- Backup: Keep YouTube as alternative (uncomment if needed) -->
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg" 
+             title="RPA Demo" frameborder="0" allowfullscreen></iframe> -->
+    </div>
+</section>
     <section id="contact" class="contact">
         <h2 data-i18n="contact_heading"></h2>
         <form  action="https://formspree.io/f/mpwdnpkz" method="POST" class="contact-form custom-form-style">
@@ -656,6 +675,9 @@
             const storedLang = localStorage.getItem('selectedLanguage') || 'en'; // Default to English
             applyLanguage(storedLang);
 
+            // Check video accessibility after language is applied
+            setTimeout(checkVideoAccessibility, 1000);
+
             const langSelect = document.querySelector('.lang-select');
             if (langSelect) {
                 // Ensure the option for the current language is selected
@@ -683,6 +705,35 @@
 
         // Client-side rate limiting and validation for form submissions
         let lastSubmissionTime = 0;
+        
+        // Video fallback detection for China users
+        function checkVideoAccessibility() {
+            const youtubeFrame = document.getElementById('rpa-video-youtube');
+            if (youtubeFrame) {
+                // Test if YouTube is accessible
+                const testImg = new Image();
+                testImg.onload = function() {
+                    // YouTube is accessible, keep current video
+                    console.log('YouTube is accessible');
+                };
+                testImg.onerror = function() {
+                    // YouTube is blocked, show fallback message or alternative video
+                    console.log('YouTube appears to be blocked, consider showing alternative');
+                    const videoContainer = document.querySelector('.video-container');
+                    if (videoContainer) {
+                        videoContainer.innerHTML = `
+                            <div style="background-color: #f0f0f0; padding: 2rem; border-radius: 8px; text-align: center;">
+                                <h3 style="color: #2a2a3e; margin-bottom: 1rem;">Video Demonstration</h3>
+                                <p style="color: #666; margin-bottom: 1rem;">Our RPA (Robotic Process Automation) solution demonstrates how we automate complex logistics workflows.</p>
+                                <p style="color: #666; font-size: 0.9rem;">If you're unable to view the video, please <a href="mailto:info@logisoft.com" style="color: #ffcc00;">contact us</a> for a personalized demo.</p>
+                            </div>
+                        `;
+                    }
+                };
+                testImg.src = 'https://www.youtube.com/favicon.ico?' + Date.now();
+            }
+        }
+        
         const form = document.querySelector('.contact-form');
         if (form) {
             form.addEventListener('submit', function (e) {
