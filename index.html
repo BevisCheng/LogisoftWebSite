@@ -179,11 +179,21 @@
             margin-bottom: 2rem;
         }
 
-        .video video {
-            width: 1020px;
-            height: auto;
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            max-width: 1020px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 1020px;
+            height: 574px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
         }
  /* Contact Section */
         .contact {
@@ -275,10 +285,16 @@
                 align-items: center;
             }
 
+            .video-container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
             .video-container iframe {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 16/9;
+                min-height: 200px;
             }
 
             .contact-form {
@@ -396,7 +412,7 @@
         <h2 data-i18n="video_heading"></h2>
         <div class="divider"></div>
         <div class="video-container">
-            <iframe id="rpa-video" width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="rpa-video" width="560" height="315" src="https://www.youtube.com/embed/G4idyvP6Pfg?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </section>
     <section id="contact" class="contact">
